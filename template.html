@@ -16,11 +16,17 @@
     <!--     Fonts and icons     -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" /> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
     <!-- CSS Files -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/light-bootstrap-dashboard.css?v=2.0.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/css/demo.css" rel="stylesheet" />
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <style>
         html {
             height: 100%
@@ -34,7 +40,7 @@
 
         #map {
             height: 500px;
-            width: 600px;
+            width: 800px;
         }
 
         .upStuff {
@@ -62,13 +68,13 @@
                     <li>
                         <a href="#pablo">
                             <i class="nc-icon nc-alien-33"></i>
-                            <p>Example 1</p>
+                            <p>Home</p>
                         </a>
                     </li>
                     <li>
                         <a href="#pablo">
                             <i class="nc-icon nc-bell-55"></i>
-                            <p>Example 2</p>
+                            <p>Experiments</p>
                         </a>
                     </li>
                 </ul>
@@ -145,86 +151,117 @@
             </nav>
             <!-- End Navbar -->
             <div class="content">
-                <div id="map">
-                    <div class="leaflet-control-container">
-                        <div class="leaflet-top leaflet-left">
-                            <form class="bgroup leaflet-control" id="dropzone">
-                                <input class="upStuff" type="file" id="input">
-                                <button class="btn  btn-primary span3" type="button">Upload File
-                                    <br>(or Drag and Drop Anywhere)
-                                    <br>GeoJSON, TopoJSON, or Zipped Shapefile Work</button>
-                            </form>
-                        </div>
-                        <div class="leaflet-top leaflet-right">
-                            <div class="leaflet-control-layers leaflet-control" aria-haspopup="true">
-                                <a class="leaflet-control-layers-toggle" href="#" title="Layers"></a>
-                                <form class="leaflet-control-layers-list">
-                                    <div class="leaflet-control-layers-base">
-                                        <label class="radio">
-                                            <input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers" checked="checked">
-                                            <span> Stamen Toner</span>
-                                        </label>
-                                        <label class="radio">
-                                            <input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers">
-                                            <span> Stamen Watercolor</span>
-                                        </label>
-                                    </div>
-                                    <div class="leaflet-control-layers-separator" style="display: none;"></div>
-                                    <div class="leaflet-control-layers-overlays"></div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="leaflet-bottom leaflet-left"></div>
-                        <div class="leaflet-bottom leaflet-right">
-                            <div class="leaflet-control-attribution leaflet-control">
-                                <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | Map tiles by
-                                <a href="http://stamen.com">Stamen Design</a>,
-                                <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> — Map data ©
-                                <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,
-                                <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
-                            </div>
-                        </div>
+                <div class="col-lg-9">
+                    <div id="map">
                     </div>
                 </div>
+                <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Conditionaing Factors</div>
 
-
-            </div>
-            <footer class="footer">
-                <div class="container">
-                    <nav>
-                        <ul class="footer-menu">
-                            <li>
-                                <a href="#">
-                                    Home
-                                </a>
+                        <!-- List group -->
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                Bootstrap Switch Default
+                                <div class="material-switch pull-right">
+                                    <input id="someSwitchOptionDefault" name="someSwitchOption001" type="checkbox" />
+                                    <label for="someSwitchOptionDefault" class="label-default"></label>
+                                </div>
                             </li>
-                            <li>
-                                <a href="#">
-                                    Company
-                                </a>
+                            <li class="list-group-item">
+                                Bootstrap Switch Primary
+                                <div class="material-switch pull-right">
+                                    <input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox" />
+                                    <label for="someSwitchOptionPrimary" class="label-primary"></label>
+                                </div>
                             </li>
-                            <li>
-                                <a href="#">
-                                    Portfolio
-                                </a>
+                            <li class="list-group-item">
+                                Bootstrap Switch Success
+                                <div class="material-switch pull-right">
+                                    <input id="someSwitchOptionSuccess" name="someSwitchOption001" type="checkbox" />
+                                    <label for="someSwitchOptionSuccess" class="label-success"></label>
+                                </div>
                             </li>
-                            <li>
-                                <a href="#">
-                                    Blog
-                                </a>
+                            <li class="list-group-item">
+                                Geology
+                                <div class="material-switch pull-right">
+                                    <input id="someSwitchOptionInfo" name="someSwitchOption001" type="checkbox" />
+                                    <label for="someSwitchOptionInfo" class="label-info"></label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                Land Use
+                                <div class="material-switch pull-right">
+                                    <input id="someSwitchOptionWarning" name="someSwitchOption001" type="checkbox" />
+                                    <label for="someSwitchOptionWarning" class="label-warning"></label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                Landslides
+                                <div class="material-switch pull-right">
+                                    <input id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox" />
+                                    <label for="someSwitchOptionDanger" class="label-danger"></label>
+                                </div>
                             </li>
                         </ul>
-                        <p class="copyright text-center">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>
-                            <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                        </p>
-                    </nav>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Weather Data</div>
+                        <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                            <i class="fa fa-calendar"></i>&nbsp;
+                            <span></span>
+                            <i class="fa fa-caret-down"></i>
+                        </div>
+                        <div class="list-group-item">
+                            <i class="fas fa-map-marker-alt"></i> Selected Coordinates
+                            <div id="selectedCoord">
+                                <span></span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit" id="weatherButton" onclick="getWeatherData()">Get Data</button>
+
+                    </div>
                 </div>
-            </footer>
+            </div>
         </div>
+    </div>
+    <!-- <footer class="footer">
+        <div class="container">
+            <nav>
+                <ul class="footer-menu">
+                    <li>
+                        <a href="#">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Company
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Portfolio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Blog
+                        </a>
+                    </li>
+                </ul>
+                <p class="copyright text-center">
+                    ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>
+                    <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                </p>
+            </nav>
+        </div>
+    </footer> -->
+    </div>
     </div>
     <!--   -->
     <!-- <div class="fixed-plugin">
@@ -333,7 +370,5 @@
 <script src='./js/leaflet.spin.js'></script>
 <script src='./js/mapSetup.js'></script>
 <script src='./script.js'></script>
-
-
 
 </html>

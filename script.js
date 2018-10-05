@@ -145,9 +145,6 @@ require(['catiline'], function(cw) {
         setWorkerEvents()
         var doneButton = makeDone(div, upButton);
 
-
-
-
         var dropbox = document.getElementById("map");
         dropbox.addEventListener("dragenter", dragenter, false);
         dropbox.addEventListener("dragover", dragover, false);
